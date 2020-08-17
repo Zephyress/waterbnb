@@ -1,0 +1,20 @@
+<div class="boats-container ">
+
+  <div>Navbar à mettre?</div>
+<% @boats.each do |boat| %>
+    <div class="card" style="width: 18rem;">
+<!--    <#% if boat.photo.attached?  %>
+          <#%= cl_image_tag(cocktail.photo.key, width: 285, height: 280, crop: :fill) %>
+        <#% else  %>
+        <#%= image_tag "https://www.paris-cocktail-festival.com/uploads/big_pics/HAVANA-CLUB-Cancha-ambiance-800x800.jpg" %>
+        <#% end  %> -->
+    <div class="card-body">
+      <h4 class="card-title"><%= boat.title %></h4>
+      <h5 class = "card-category"> <%= boat.category %></h5>
+      <%= link_to "Plus d'informations" , boat_path(boat) %>
+    </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
