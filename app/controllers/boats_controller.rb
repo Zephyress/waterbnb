@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-def new
+  def new
     @boat = Boat.new
   end
 
@@ -16,6 +16,6 @@ def new
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :category, :description)
+    params.require(:boat).permit(:title, :category, :description, :price)
   end
 end
