@@ -1,11 +1,13 @@
 require 'faker'
 CATEGORIES = ["Gulet", "Motoryatch", "Motor Boat", "Power catamaran", "Jet-ski", "Catamaran", "Sailing yatch"]
+
+puts " \u{26f5} Sinking the boats \u{26f5} "
+puts
+Boat.destroy_all
 puts " \u{1f52a} Killing the users \u{1f52a} "
 User.destroy_all
 puts
-puts " \u{26f5} Sinking the boats \u{26f5} "
-Boat.destroy_all
-puts
+
 puts " ------- \u{2728} !DB Clean! \u{2728} ------- "
 puts
 puts "\u{1f476} Giving birth to new users \u{1f476}"
@@ -26,7 +28,7 @@ puts " \u{1f6e0}  Building new boats \u{1f6e0} "
     category:CATEGORIES.sample,
     description: Faker::GreekPhilosophers.quote,
     user_id: User.all.sample.id)
-end
+  end
 puts
 puts "\u{2693} #{Boat.count} boats in the harbor \u{2693}"
 
