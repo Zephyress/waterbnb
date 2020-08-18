@@ -1,21 +1,8 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [:edit, :update]
+
   def index
     @boats = Boat.all
-  end
-
-  def destroy
-    @boat = Boat.find(params[:id])
-    @boat.destroy
-    redirect_to boats_path
-  end
-
-  def edit
-  end
-
-  def update
-    @boat.update(boat_params)
-    redirect_to boats_path
   end
 
   def new
@@ -30,6 +17,20 @@ class BoatsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @boat.update(boat_params)
+    redirect_to boats_path
+  end
+
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to boats_path
   end
 
   private
