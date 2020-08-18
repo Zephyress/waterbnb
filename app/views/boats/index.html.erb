@@ -13,7 +13,7 @@
          <% if boat.photo.attached?  %>
             <%= cl_image_tag(boat.photo.key, width: 285, height: 280, crop: :fill) %>
           <% else  %>
-            <%= image_tag ("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014711_1280.jpg") %>
+            <%= image_tag ("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014711_1280.jpg"),width: 285, height: 280, crop: :fill %>
           <% end  %>
         <div class="card-body">
           <h4 class="card-title"><%= boat.title %></h4>
@@ -24,8 +24,9 @@
       <% end %>
     </div>
 
+    <%= link_to "Create a new boat", new_boat_path, class: "btn btn-gradient" %>
+
   </div>
 
-  <%= link_to "Create a new boat", new_boat_path, class: "btn btn-gradient" %>
 
-</div>
+
