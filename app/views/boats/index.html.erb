@@ -8,13 +8,16 @@
         <#% else  %>
         <#%= image_tag "https://www.paris-cocktail-festival.com/uploads/big_pics/HAVANA-CLUB-Cancha-ambiance-800x800.jpg" %>
         <#% end  %> -->
+
     <div class="card-body">
       <h4 class="card-title"><%= boat.title %></h4>
       <h5 class = "card-category"> <%= boat.category %></h5>
       <%= link_to "Plus d'informations" , boat_path(boat) %>
     </div>
+
     </div>
     <% end %>
   </div>
 
 </div>
+
