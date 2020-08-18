@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :find_boat, only: [:edit, :update]
+  before_action :find_boat, only: [:edit, :update, :show]
 
   def index
     @boats = Boat.all
@@ -13,7 +13,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = current_user
     if @boat.save
-      redirect_to new_boat_path
+      redirect_to boats_path
     else
       render :new
     end
@@ -22,9 +22,12 @@ class BoatsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def update
     @boat.update(boat_params)
-    redirect_to boats_path
+    redirect_to boat_path
   end
 
   def destroy
