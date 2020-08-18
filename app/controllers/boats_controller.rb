@@ -10,6 +10,10 @@ class BoatsController < ApplicationController
     redirect_to boats_path
   end
 
+  def show
+    @boat = Boat.find(params[:id])
+  end
+
   def edit
   end
 
@@ -39,6 +43,6 @@ class BoatsController < ApplicationController
   end
 
   def find_boat
-    @Boat = Boat.find(params[:id])
+    @boat = Boat.find(params[:id])
   end
 end
