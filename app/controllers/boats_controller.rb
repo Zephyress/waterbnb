@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :find_boat, only: [:edit, :update]
+  before_action :find_boat, only: [:edit, :update, :show]
 
   def index
     @boats = Boat.all
@@ -20,6 +20,9 @@ class BoatsController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def update
