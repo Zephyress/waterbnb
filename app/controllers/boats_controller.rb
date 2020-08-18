@@ -1,5 +1,18 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [:edit, :update]
+  def index
+    @boats = Boat.all
+  end
+
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to boats_path
+  end
+
+  def show
+    @boat = Boat.find(params[:id])
+  end
 
   def edit
   end
@@ -26,10 +39,10 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :description, :category, :price)
+    params.require(:boat).permit(:title, :description, :category, :price, :photo)
   end
 
   def find_boat
-    @Boat = Boat.find(params[:id])
+    @boat = Boat.find(params[:id])
   end
 end
