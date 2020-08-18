@@ -1,12 +1,16 @@
 class BookingsController < ApplicationController
-  def new
+  def find_id
     @boat = Boat.find(params[:boat_id])
+  end
+
+  def new
+    find_id
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @boat = Boat.find(params[:boat_id])
+    find_id
     @booking.boat = @boat
     @booking.user = current_user
     if @booking.save!
