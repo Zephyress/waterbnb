@@ -33,7 +33,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.12.0'#!/usr/bin/env ruby
 
 group :development, :test do
   gem 'pry-byebug'
