@@ -36,10 +36,10 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :description, :category, :price)
+    params.require(:boat).permit(:title, :description, :category, :price, :photo)
   end
 
   def find_boat
-    @Boat = Boat.find(params[:id])
+    @boat = Boat.find(params[:id])
   end
 end
