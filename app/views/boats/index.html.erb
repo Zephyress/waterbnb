@@ -1,27 +1,32 @@
 <div class="boats-container ">
 
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+
     <div class="text-banner">
-      <h1>Looking for the Boat of your <strong> dreams?!</strong></h1>
-      <h4>WaterBnb is made for you ! </h4>
+      <h1 class="ml-5">Looking for the Boat of your <strong> dreams?!</strong></h1>
+      <h4 class="ml-5">WaterBnb is made for you ! </h4>
     </div>
   </div>
 
   <div class="cards">
     <% @boats.each do |boat| %>
-      <div class="card" style="width: 18rem;">
+
+      <div class="card mb-3" style="width: 100%;">
          <% if boat.photo.attached?  %>
-            <%= cl_image_tag(boat.photo.key, width: 285, height: 280, crop: :fill) %>
+            <%= cl_image_tag(boat.photo.key, class: "size", crop: :fill) %>
           <% else  %>
             <%= image_tag ("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014711_1280.jpg"),width: 285, height: 280, crop: :fill %>
           <% end  %>
+
         <div class="card-body">
           <h4 class="card-title"><%= boat.title %></h4>
           <h5 class = "card-category"> <%= boat.category %></h5>
           <%= link_to "Plus d'informations" , boat_path(boat) %>
         </div>
+
       </div>
       <% end %>
+
     </div>
 
     <%= link_to "Create a new boat", new_boat_path, class: "btn btn-gradient" %>
