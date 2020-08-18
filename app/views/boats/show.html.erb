@@ -3,7 +3,7 @@
 
     <div class="col-md-8 pr-2 pl-0">
 
-      <div class="pl-3 d-flex flex-column border border-primary rounded">
+      <div class="pl-3 d-flex flex-column border border-primary bookings-date mb-3">
         <div class="title">
           <h1 class="text-justify pt-3"><%= @boat.title %></h1>
         </div>
@@ -27,10 +27,10 @@
 
     </div>
 
-    <div class="col-md-4 d-flex flex-column border border-primary rounded">
+    <div class="col-md-4 d-flex flex-column border border-primary rounded bookings-date">
 
       <% @boat.bookings.each do |booking| %>
-      <div class="mb-2">
+      <div class="mt-2 mb-1">
         <h4>Booking n° <%= booking.id %></h4>
         <p>From <br>
           <%= booking.start_date %></p>
@@ -41,16 +41,26 @@
 
     </div>
 
-    <div class="links d-flex flex-column mb-2 mt-2">
+    <div class="d-flex flex-row justify-content-between w-100">
 
-      <div class="btn btn-primary btn-form mb-2">
-        <%= link_to 'Edit information', edit_boat_path(@boat) %>
-      </div>
+      <div class="links d-flex flex-column mb-2 mt-2">
 
-      <div class="btn btn-danger btn-form">
-        <%= link_to 'Delete rental', boat_path(@boat),
+        <div class="btn btn-primary btn-form mb-2">
+          <%= link_to 'Edit information', edit_boat_path(@boat) %>
+        </div>
+
+        <div class="btn btn-danger btn-form">
+          <%= link_to 'Delete rental', boat_path(@boat),
                                     method: :delete,
                                     data: {confirm: "Are you sure ?"} %>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="btn btn-warning btn-form">
+            <%= link_to 'Book your boat !', new_boat_booking_path(@boat) %>
+        </div>
       </div>
 
     </div>
