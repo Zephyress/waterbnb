@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="title">
+    <h1><%= @boat.title %></h1>
+  <div/>
+
+  <%= cl_image_tag @boat.photo.key, width: 800, height: 400, crop: :fill %>
+
+  <div class="content">
+  <p><%= @boat.description %></p>
+  <p><%= @boat.price %></p>
+  <p><%= @boat.category %></p>
+  </div>
+
+  <div class="links">
+    <%= link_to 'Edit boat information', edit_boat_path(@boat) %>
+    <%= link_to 'Delete rental', boat_path(@boat),
+                                  method: :delete,
+                                  data: {confirm: "Are you sure ?"} %>
+  </div>
+
+</div>
