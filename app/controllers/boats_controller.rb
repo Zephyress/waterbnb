@@ -1,5 +1,6 @@
 class BoatsController < ApplicationController
   before_action :find_boat, only: [:edit, :update, :show]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @boats = Boat.all
