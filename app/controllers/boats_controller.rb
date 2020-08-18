@@ -16,7 +16,7 @@ class BoatsController < ApplicationController
   def update
     @boat.update(boat_params)
     redirect_to boats_path
-  end
+  endgco
 
   def new
     @boat = Boat.new
