@@ -1,1 +1,11 @@
 // Specific CSS for your home-page
+.photo {
+  img {
+    width: 80%;
+  }
+}
+
+.bookings-date {
+  height: 650px;
+  overflow: scroll;
+}

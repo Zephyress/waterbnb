@@ -1,21 +1,70 @@
 <div class="container">
-  <div class="title">
-    <h1><%= @boat.title %></h1>
-  <div/>
+  <div class="row">
 
-  <%= cl_image_tag @boat.photo.key, width: 600, height: 300, crop: :fill %>
+    <div class="col-md-8 pr-2 pl-0">
 
-  <div class="content">
-  <p><%= @boat.description %></p>
-  <p><%= @boat.price %></p>
-  <p><%= @boat.category %></p>
-  </div>
+      <div class="pl-3 d-flex flex-column border border-primary bookings-date mb-3">
+        <div class="title">
+          <h1 class="text-justify pt-3"><%= @boat.title %></h1>
+        </div>
 
-  <div class="links">
-    <%= link_to 'Edit boat information', edit_boat_path(@boat) %>
-    <%= link_to 'Delete rental', boat_path(@boat),
-                                  method: :delete,
-                                  data: {confirm: "Are you sure ?"} %>
+        <div class="mt-4 mb-4 photo">
+          <%= cl_image_tag @boat.photo.key, crop: :fill %>
+        </div>
+
+        <div class="content mt-2">
+          <h3>What do you need to now ? 🔎</h3>
+          <p><%= @boat.description %></p>
+
+          <h3>What about the price ? 💳</h3>
+          <p><%= @boat.price %> €</p>
+
+          <h3>Fast and furious or not ? ⛵</h3>
+          <p><%= @boat.category %></p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 d-flex flex-column border border-primary rounded bookings-date">
+
+      <% @boat.bookings.each do |booking| %>
+      <div class="mt-2 mb-1">
+        <h4>Booking n° <%= booking.id %></h4>
+        <p>From <br>
+          <%= booking.start_date %></p>
+        <p>To <br>
+          <%= booking.end_date %></p>
+      </div>
+      <% end %>
+
+    </div>
+
+    <div class="d-flex flex-row justify-content-between w-100">
+
+      <div class="links d-flex flex-column mb-2 mt-2">
+
+        <div class="btn btn-primary btn-form mb-2">
+          <%= link_to 'Edit information', edit_boat_path(@boat) %>
+        </div>
+
+        <div class="btn btn-danger btn-form">
+          <%= link_to 'Delete rental', boat_path(@boat),
+                                    method: :delete,
+                                    data: {confirm: "Are you sure ?"} %>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="btn btn-warning btn-form">
+            <%= link_to 'Book your boat !', new_boat_booking_path(@boat) %>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
