@@ -1,71 +1,73 @@
+
 <div class="container">
-  <div class="row">
+  <div class="boat_container">
+    <div class="title">
+      <h1 class="text-justify pt-3"><%= @boat.title %></h1>
+    </div>
 
-    <div class="col-md-8 pr-2 pl-0">
+    <div class="mt-4 mb-4 photo">
+      <%= cl_image_tag @boat.photo.key, crop: :fill %>
+    </div>
 
-      <div class="pl-3 d-flex flex-column border border-primary bookings-date mb-3">
-        <div class="title">
-          <h1 class="text-justify pt-3"><%= @boat.title %></h1>
-        </div>
+    <div class="info-container">
 
-        <div class="mt-4 mb-4 photo">
-          <%= cl_image_tag @boat.photo.key, crop: :fill %>
-        </div>
-
-        <div class="content mt-2">
-          <h3>What do you need to now ? 🔎</h3>
+      <div id="mother_description" class="content d-flex mt-2 justify-content-between">
+        <div id="boat-show-left" class="child_description">
+          <h3> Boat description</h3>
           <p><%= @boat.description %></p>
-          <p><%= @boat.address %></p>
 
-          <h3>What about the price ? 💳</h3>
-          <p><%= @boat.price %> €</p>
-
-          <h3>Fast and furious or not ? ⛵</h3>
+          <h3> Boat category</h3>
           <p><%= @boat.category %></p>
 
+        <!--   <div id="show-action-btn ">
+            <div class="btn btn-flat-reverse">
+              <%= link_to 'Edit', edit_boat_path(@boat), class: "btn-flat-reverse"%>
+            </div>
+            <div class="btn btn-flat-reverse">
+              <%= link_to 'Delete', boat_path(@boat),
+                                        method: :delete,
+                                        data: {confirm: "Are you sure ?"},
+                                        class: "btn-flat-reverse"%>
+            </div>
+          </div> -->
+        </div>
+
+        <div id="boat-show-right" class="child_description">
+          <div class="book_info">
+            <h4 id="book_info_price"> <%= @boat.price %> € /day</h4>
+
+            <div id="book_info_date">
+              <div id="book-info-from">
+                <p> from 10/08/20</p>
+              </div>
+              <div id="book_info_until">
+                <p> until 24/08/20</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="book_btn">
+            <%= link_to 'Book your boat !', new_boat_booking_path(@boat), class: "btn btn-flat"%>
+          </div>
+
         </div>
       </div>
 
+      </div>
     </div>
-
-    <div class="col-md-4 d-flex flex-column border border-primary rounded bookings-date">
-
-      <% @boat.bookings.each do |booking| %>
-      <div class="mt-2 mb-1">
-        <h4>Booking n° <%= booking.id %></h4>
-        <p>From <br>
-          <%= booking.start_date %></p>
-        <p>To <br>
-          <%= booking.end_date %></p>
-      </div>
-      <% end %>
-
-    </div>
-
-    <div class="d-flex flex-row justify-content-between w-100">
-
-      <div class="links d-flex flex-column mb-2 mt-2">
-
-        <div class="btn btn-primary btn-form mb-2">
-          <%= link_to 'Edit information', edit_boat_path(@boat) %>
-        </div>
-
-        <div class="btn btn-danger btn-form">
-          <%= link_to 'Delete rental', boat_path(@boat),
-                                    method: :delete,
-                                    data: {confirm: "Are you sure ?"} %>
-        </div>
-
-      </div>
-
-      <div>
-        <div class="btn btn-warning btn-form">
-            <%= link_to 'Book your boat !', new_boat_booking_path(@boat) %>
+      <div id="booking-board">
+        <div>
+          <% @boat.bookings.each do |booking| %>
+          <div>
+            <h4>Booking n° <%= booking.id %></h4>
+            <p>From <br>
+              <%= booking.start_date %></p>
+            <p>To <br>
+              <%= booking.end_date %></p>
+              <% end %>
+          </div>
         </div>
       </div>
-
-    </div>
-
   </div>
 
  <div id="map"
