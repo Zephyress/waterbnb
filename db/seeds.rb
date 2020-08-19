@@ -50,14 +50,24 @@ images = ['./app/assets/images/boat1.png','./app/assets/images/boat8.png','./app
     price:Faker::Number.within(range: 40..5000),
     category:CATEGORIES.sample,
     description: Faker::GreekPhilosophers.quote,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
   )
   file = File.open(images.sample)
   boat.photo.attach(io: file, filename: "${boat.title}.jpg", content_type: 'image/jpg')
 end
 puts
 puts "\u{2693} #{Boat.count} boats in the harbor \u{2693}"
+puts
+puts " \u{1f4b8}  Creating 2 bookings \u{1f4b8} "
 
+booking1 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
+booking2 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
+
+puts " #{booking1.user.name} (id: n°#{booking1.user_id} just booked the boat #{booking1.boat.title} (id: #{booking1.boat_id}) "
+puts
+puts " #{booking1.user.name} (id: n°#{booking1.user_id} just booked the boat #{booking1.boat.title} (id: #{booking1.boat_id}) "
+puts
+puts " ------ \u{1f44d} All done! \u{1f44d} ------ "
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
