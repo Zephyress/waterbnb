@@ -22,6 +22,7 @@ puts
 #   'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
 #   ).read
 # html_doc = Nokogiri::HTML(html_file
+ADDRESS = ["Anse de Malmousque, 13007 Marseille", "2 Avenue de l'Infanterie de Marine, 83000 Toulon", "25 Rue du Bac, 29120 Combrit", "Sint-Bernardusplein 4, 8620 Nieuwpoort, Belgique", "Prom. Jacques Thibaud, 64500 Saint-Jean-de-Luz"]
 
 puts "\u{1f476} Giving birth to new users \u{1f476}"
 10.times do
@@ -51,7 +52,7 @@ images = ['./app/assets/images/boat1.png','./app/assets/images/boat8.png','./app
     category:CATEGORIES.sample,
     description: Faker::GreekPhilosophers.quote,
     user_id: User.all.sample.id,
-    address: Faker::Address.full_address
+    address: ADDRESS.sample
   )
   file = File.open(images.sample)
   boat.photo.attach(io: file, filename: "${boat.title}.jpg", content_type: 'image/jpg')
