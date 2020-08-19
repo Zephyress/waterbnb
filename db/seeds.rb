@@ -51,6 +51,7 @@ images = ['./app/assets/images/boat1.png','./app/assets/images/boat8.png','./app
     category:CATEGORIES.sample,
     description: Faker::GreekPhilosophers.quote,
     user_id: User.all.sample.id,
+    address: Faker::Address.full_address
   )
   file = File.open(images.sample)
   boat.photo.attach(io: file, filename: "${boat.title}.jpg", content_type: 'image/jpg')
@@ -63,9 +64,9 @@ puts " \u{1f4b8}  Creating 2 bookings \u{1f4b8} "
 booking1 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
 booking2 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
 
-puts " #{booking1.user.name} (id: n°#{booking1.user_id} just booked the boat #{booking1.boat.title} (id: #{booking1.boat_id}) "
+puts " #{booking1.user.name} (id: n°#{booking1.user_id}) just booked the boat '#{booking1.boat.title}' (id: #{booking1.boat_id}) "
 puts
-puts " #{booking1.user.name} (id: n°#{booking1.user_id} just booked the boat #{booking1.boat.title} (id: #{booking1.boat_id}) "
+puts " #{booking2.user.name} (id: n°#{booking2.user_id}) just booked the boat '#{booking2.boat.title}' (id: #{booking2.boat_id}) "
 puts
 puts " ------ \u{1f44d} All done! \u{1f44d} ------ "
 # This file should contain all the record creation needed to seed the database with its default values.
