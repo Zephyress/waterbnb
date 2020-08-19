@@ -4,6 +4,15 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+
+    @boats = Boat.geocoded # returns flats with coordinates
+
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def new
@@ -24,6 +33,12 @@ class BoatsController < ApplicationController
   end
 
   def show
+   # returns flats with coordinates
+
+    @marker = [{
+      lat: @boat.latitude,
+      lng: @boat.longitude
+    }]
   end
 
   def update
