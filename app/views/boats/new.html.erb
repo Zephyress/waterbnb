@@ -7,10 +7,11 @@
         <%= f.input :address, id: "address" %>
         <%= f.input :category, collection: Boat::CATEGORIES %>
         <%= f.input :price %>
-        <%= f.input :photo, as: :file %>
       </div>
-      <%= f.submit "Share your boat", class: "btn btn-primary" %>
-
+      <div class="add-photo">
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Share your boat", class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>
