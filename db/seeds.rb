@@ -24,7 +24,7 @@ puts
 # html_doc = Nokogiri::HTML(html_file
 
 puts "\u{1f476} Giving birth to new users \u{1f476}"
-20.times do
+10.times do
   user = User.create!(
     name:Faker::FunnyName.name,
     email:Faker::Internet.email,
@@ -37,27 +37,38 @@ puts "\u{1f46f} CONGRATS! It's #{User.count} users, half of them (give or take) 
 puts
 puts " \u{1f6e0}  Building new boats \u{1f6e0} "
 
-images = ['./app/assets/images/boat1.png','./app/assets/images/boat2.png','./app/assets/images/boat3.png','./app/assets/images/boat4.png','./app/assets/images/boat5.png','./app/assets/images/boat6.png','./app/assets/images/boat7.png','./app/assets/images/boat8.png','./app/assets/images/boat9.png']
+images = ['./app/assets/images/boat1.png','./app/assets/images/boat8.png','./app/assets/images/boat9.png','./app/assets/images/boat2ndseed1.jpg','./app/assets/images/boat2ndseed2.jpg','./app/assets/images/boat2ndseed3.jpg','./app/assets/images/boat2ndseed4.jpg', './app/assets/images/boat2ndseed5.jpg','./app/assets/images/boat2ndseed6.jpg','./app/assets/images/boat2ndseed7.jpg','./app/assets/images/boat2ndseed8.jpg','./app/assets/images/boat2ndseed9.jpg', './app/assets/images/boat2ndseed10.jpg' ]
 # html_doc.search('img').each do |element|
 #   # images << element.attribute('src').value
 #   puts element
 # end
 
 
-20.times do
+10.times do
   boat = Boat.create!(
     title:Faker::GreekPhilosophers.name,
     price:Faker::Number.within(range: 40..5000),
     category:CATEGORIES.sample,
     description: Faker::GreekPhilosophers.quote,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    address: Faker::Address.full_address
   )
   file = File.open(images.sample)
   boat.photo.attach(io: file, filename: "${boat.title}.jpg", content_type: 'image/jpg')
 end
 puts
 puts "\u{2693} #{Boat.count} boats in the harbor \u{2693}"
+puts
+puts " \u{1f4b8}  Creating 2 bookings \u{1f4b8} "
 
+booking1 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
+booking2 = Booking.create!(user_id: User.all.sample.id, boat_id: Boat.all.sample.id)
+
+puts " #{booking1.user.name} (id: n°#{booking1.user_id}) just booked the boat '#{booking1.boat.title}' (id: #{booking1.boat_id}) "
+puts
+puts " #{booking2.user.name} (id: n°#{booking2.user_id}) just booked the boat '#{booking2.boat.title}' (id: #{booking2.boat_id}) "
+puts
+puts " ------ \u{1f44d} All done! \u{1f44d} ------ "
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
