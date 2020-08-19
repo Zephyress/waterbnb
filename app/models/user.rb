@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo, dependent: :destroy
   has_many :boats
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   def profile_picture
     if photo.attached?
