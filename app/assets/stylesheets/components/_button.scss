@@ -12,3 +12,35 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #1BCB7F;
+  color: white;
+}
+
+.btn-flat-reverse{
+  color: #1EDD88;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: white;
+  transition: background 0.3s ease;
+  border-color: #1EDD88;
+}
+
+.btn-flat-reverse:hover {
+  background: white;
+  color: #1BCB7F;
+  border-color: #1EDD88;
+}
