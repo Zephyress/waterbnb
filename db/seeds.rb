@@ -24,7 +24,7 @@ puts
 # html_doc = Nokogiri::HTML(html_file
 
 puts "\u{1f476} Giving birth to new users \u{1f476}"
-20.times do
+10.times do
   user = User.create!(
     name:Faker::FunnyName.name,
     email:Faker::Internet.email,
@@ -37,14 +37,14 @@ puts "\u{1f46f} CONGRATS! It's #{User.count} users, half of them (give or take) 
 puts
 puts " \u{1f6e0}  Building new boats \u{1f6e0} "
 
-images = ['./app/assets/images/boat1.png','./app/assets/images/boat2.png','./app/assets/images/boat3.png','./app/assets/images/boat4.png','./app/assets/images/boat5.png','./app/assets/images/boat6.png','./app/assets/images/boat7.png','./app/assets/images/boat8.png','./app/assets/images/boat9.png']
+images = ['./app/assets/images/boat1.png','./app/assets/images/boat8.png','./app/assets/images/boat9.png','./app/assets/images/boat2ndseed1.jpg','./app/assets/images/boat2ndseed2.jpg','./app/assets/images/boat2ndseed3.jpg','./app/assets/images/boat2ndseed4.jpg', './app/assets/images/boat2ndseed5.jpg','./app/assets/images/boat2ndseed6.jpg','./app/assets/images/boat2ndseed7.jpg','./app/assets/images/boat2ndseed8.jpg','./app/assets/images/boat2ndseed9.jpg', './app/assets/images/boat2ndseed10.jpg' ]
 # html_doc.search('img').each do |element|
 #   # images << element.attribute('src').value
 #   puts element
 # end
 
 
-20.times do
+10.times do
   boat = Boat.create!(
     title:Faker::GreekPhilosophers.name,
     price:Faker::Number.within(range: 40..5000),
