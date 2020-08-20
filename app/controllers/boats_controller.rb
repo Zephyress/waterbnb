@@ -70,6 +70,8 @@ class BoatsController < ApplicationController
   def show
    # returns flats with coordinates
 
+   @booking = Booking.new
+
     @marker = [{
       lat: @boat.latitude,
       lng: @boat.longitude
