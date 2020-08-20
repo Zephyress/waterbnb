@@ -1,0 +1,38 @@
+  <div class="container">
+
+  <div class="dash-columns">
+
+  <div class="profile">
+    <h5> Profile</h5>
+    <%= cl_image_tag current_user.profile_picture, class: "avatar" %>
+    <h5> Welcome <%= current_user.name %></h5>
+    <p><%= current_user.email %></p>
+
+
+  </div>
+
+
+  <div class="dash-bookings">
+   <h3>My Bookings</h3>
+
+      <div class="dash-booking-board">
+          <% current_user.bookings.each do |booking| %>
+          <div>
+            <h4><%= booking.id %></h4>
+            <p>From <br>
+              <%= booking.start_date.strftime("%A %e %B") %></p>
+            <p>To <br>
+              <%= booking.end_date.strftime("%A %e %B") %></p>
+              <% end %>
+          </div>
+      </div>
+
+  </div>
+
+
+
+
+
+  </div>
+  </div>
+

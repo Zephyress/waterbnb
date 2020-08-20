@@ -1,0 +1,30 @@
+.dash-columns{
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.profile {
+  width: 30%;
+  background-color: white;
+  box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, .1);
+  border-radius: 4px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.dash-bookings {
+  width: 70%;
+  background-color: white;
+  box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, .1);
+  border-radius: 4px;
+
+}
+
+.dash-booking-board{
+
+}
