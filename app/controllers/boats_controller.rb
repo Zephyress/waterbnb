@@ -3,9 +3,18 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @boats = Boat.all
 
     @boats = Boat.geocoded # returns flats with coordinates
+
+    if params[:query].present?
+      @boats = @boats.search_by_title_and_description(params[:query])
+    end
+    if params[:category].present?
+      @boats = @boats.where(category: params[:category])
+    end
+    if params[:price_max].present?
+      @boats = @boats.where("price <= ?", params[:price_max])
+    end
 
     @markers = @boats.map do |boat|
       {
