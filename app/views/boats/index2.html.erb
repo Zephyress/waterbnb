@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="index-main">
+    <div class="index-cards">
+      <% @boats.each do |boat| %>
+        <div class="index-card-product-left">
+          <div class="index-card-product">
+            <% if boat.photo.attached?  %>
+              <%= cl_image_tag(boat.photo.key, class: "size", crop: :fill) %>
+            <% else  %>
+              <%= image_tag ("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014711_1280.jpg"),width: 285, height: 280, crop: :fill %>
+            <% end  %>
+            <div class="index-card-product-infos">
+              <div class="product-info-title">
+              <h2><%= boat.title %></h2>
+              </div>
+              <p><%= boat.description%></p>
+
+            <p class = "index-card-category"> <%= boat.price %> € / day </p>
+            </div>
+          </div>
+        </div>
+        <div class="index-card-product-right">
+        </div>
+        <%= link_to boat_path(boat) do %>
+        <% end %>
+      <% end %>
+    </div>
+    <div id="map" class="index-map"
+      style="width: 500px ; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>

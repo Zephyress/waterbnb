@@ -16,6 +16,20 @@ class BoatsController < ApplicationController
     end
   end
 
+  def index2
+    @boats = Boat.all
+
+    @boats = Boat.geocoded # returns flats with coordinates
+
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boat: boat })
+      }
+    end
+  end
+
   def new
     @boat = Boat.new
   end
