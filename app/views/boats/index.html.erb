@@ -4,24 +4,27 @@
     <h1 class="ml-5">Looking for the Boat of your <strong> dreams?!</strong></h1>
     <h4 class="ml-5">WaterBnb is made for you ! </h4>
 
-    <%= form_tag boats_path, class: "d-flex ml-5", method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control research-form",
-        placeholder: "Name"
-        %>
+    <div class="search d-flex ml-5">
+      <%= form_tag(boats_path, method: :get, class: "form d-flex") do %>
+
         <%= text_field_tag :query,
-        params[:query],
-        class: "form-control research-form",
-        placeholder: "Description"
-        %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control research-form",
-        placeholder: "Adress"
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
-    <% end %>
+              params[:query],
+              class: "form-control research-form",
+              placeholder: "Search a boat"
+            %>
+
+        <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
+
+        <%= text_field_tag :price_max,
+            params[:price_max],
+            class: "form-control research-form",
+            placeholder: "Limite ?" %>
+
+        <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+      <% end %>
+
+
+    </div>
 
   </div>
 </div>
