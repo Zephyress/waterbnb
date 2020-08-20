@@ -11,8 +11,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Check the HOT boats looking for users around you", "/boats", class: "nav-link" %>
+        <li class="book_btn_nav">
+            <%= link_to 'Create a new rental!', new_boat_path, class: "btn btn-flat"%>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
