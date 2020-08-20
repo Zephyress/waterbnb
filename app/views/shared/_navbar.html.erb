@@ -14,6 +14,9 @@
         <li class="nav-item active">
           <%= link_to "Check the HOT boats looking for users around you", "/boats", class: "nav-link" %>
         </li>
+        <li class="book_btn">
+            <%= link_to 'Create a new rental!', new_boat_path, class: "btn btn-flat"%>
+        </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
