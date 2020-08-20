@@ -4,10 +4,11 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :category %>
-    <%= f.input :price %>
+    <%= f.input :price, :label => "Price per day" %>
     <div class="add-photo">
       <%= f.input :photo, as: :file %>
       <%= f.submit "Update my boat", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
+<%= render 'shared/footer' %>

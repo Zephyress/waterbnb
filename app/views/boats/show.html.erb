@@ -1,80 +1,133 @@
-
-<div class="container">
-  <div class="boat_container">
-    <div class="title">
-      <h1 class="text-justify pt-3"><%= @boat.title %></h1>
+  <div class="container">
+    <div class="boat_container">
+      <div id="show-title">
+        <h1 class="text-justify pt-3"><%= @boat.title %></h1>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <p> <%= @boat.address%> </p>
+      </div>
+      <div id="show-pict-one" class="mt-4 mb-4 photo">
+        <%= cl_image_tag @boat.photo.key, crop: :fill %>
+      </div>
     </div>
-
-    <div class="mt-4 mb-4 photo">
-      <%= cl_image_tag @boat.photo.key, crop: :fill %>
-    </div>
-
-    <div class="info-container">
-
-      <div id="mother_description" class="content d-flex mt-2 justify-content-between">
-        <div id="boat-show-left" class="child_description">
-          <h3> Boat description</h3>
-          <p><%= @boat.description %></p>
-
-          <h3> Boat category</h3>
-          <p><%= @boat.category %></p>
-
-        <!--   <div id="show-action-btn ">
-            <div class="btn btn-flat-reverse">
-              <%= link_to 'Edit', edit_boat_path(@boat), class: "btn-flat-reverse"%>
+  <!--  div avec tout le contenu en dessous de la photo -->
+      <div id="info-container">
+        <!--  div avec tout le contenu sur la gauche -->
+        <div id="mother-description" class="content d-flex mt-2 justify-content-between">
+          <!--  div avec la description de la location -->
+          <div id="boat-show-intro" class="child_description">
+            <h4><%= @boat.description %></h4>
+            <div id="boat-show-tags">
+                <p><%= @boat.category %> · </p>
+                <p> 6 guests · </p>
+                <p> Sailing permit required</p>
             </div>
-            <div class="btn btn-flat-reverse">
-              <%= link_to 'Delete', boat_path(@boat),
-                                        method: :delete,
-                                        data: {confirm: "Are you sure ?"},
-                                        class: "btn-flat-reverse"%>
+          </div>
+          <!--  div avec toutes les conditions le location -->
+          <div id="boat-show-conditions">
+            <div id="condition-type">
+              <div id="type-icone">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <div id="type-text">
+                <h5>Entire Boat</h5>
+                <p>You’ll have the Boat to yourself.</p>
+              </div>
+            </div>
+            <div id="condition-clean">
+              <div id="clean-icone">
+                <i class="fas fa-hand-sparkles"></i>
+              </div>
+              <div id="clean-text">
+                <h5>  Clean and tidy</h5>
+                <p>  3 recent guests said this place was sparkling clean.</p>
+              </div>
+            </div>
+            <div id="condition-host">
+              <div id="host-icone">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div id="host-text">
+                <h5>Superhost</h5>
+                <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
+              </div>
+            </div>
+            <div id="condition-cancelation">
+              <div class="cancelation-icone">
+                <i class="fas fa-minus-circle"></i>
+              </div>
+              <div id="cancelation-text">
+                <h5>Cancellation policy</h5>
+                <p>Cancel before 2:00 PM on 21 Aug and only get a refund of the cleaning fee.</p>
+              </div>
+            </div>
+          </div>
+         <!--  <div id="booking-board">
+            <div>
+              <% @boat.bookings.each do |booking| %>
+              <div>
+                <h5>Booking n° <%= booking.id %></h5>
+                <p>From <br>
+                  <%= booking.start_date %></p>
+                <p>To <br>
+                  <%= booking.end_date %></p>
+                  <% end %>
+              </div>
             </div>
           </div> -->
+
         </div>
-
-        <div id="boat-show-right" class="child_description">
-          <div class="book_info">
-            <h4 id="book_info_price"> <%= @boat.price %> € /day</h4>
-
-            <div id="book_info_date">
-              <div id="book-info-from">
-                <p> from 10/08/20</p>
+        <!--  div avec tout le contenu sur la droite (sticky box)-->
+          <div id="boat-show-right" class="child_description">
+            <div id="book-info">
+              <div id="book-info-first-box">
+                <div id="book-info-price">
+                  <p> <%= @boat.price %> € /day</p>
+                </div>
+                <div id="book-info-heart">
+                  <i class="fas fa-heart"></i>
+                </div>
               </div>
-              <div id="book_info_until">
-                <p> until 24/08/20</p>
+
+              <div id="book-info-date">
+                  <p> from 10/08/20</p>
+                  <p> until 24/08/20</p>
               </div>
+
+              <div id="book-info-guest">
+                <p>Guest</p>
+              </div>
+
             </div>
 
-          </div>
-          <div class="book_btn">
-            <%= link_to 'Book your boat !', new_boat_booking_path(@boat), class: "btn btn-flat"%>
-          </div>
+            <%= simple_form_for [ @boat, @booking ] do |f| %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.button :submit, "Book your boat !", class: "btn btn-primary btn-flat" %>
+            <% end %>
 
-        </div>
+          </div>
       </div>
 
-      </div>
-    </div>
-
-      <div id="booking-board">
-        <div>
-          <% @boat.bookings.each do |booking| %>
-          <div>
-            <h4>Booking n° <%= booking.id %></h4>
-            <p>From <br>
-              <%= booking.start_date %></p>
-            <p>To <br>
-              <%= booking.end_date %></p>
-              <% end %>
-          </div>
-        </div>
-      </div>
-         <div id="map" class="mt-4 mb-4"
-             style="width: 100%; height: 250px;"
-             data-markers="<%= @marker.to_json %>"
-             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <div id="map" class="mt-4 mb-4"
+           style="width: 100%; height: 250px;"
+           data-markers="<%= @marker.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
   </div>
+  <%= render 'shared/footer' %>
 
-</div>
+
+          <!--   <div id="show-action-btn ">
+              <div class="btn btn-flat-reverse">
+                <%= link_to 'Edit', edit_boat_path(@boat), class: "btn-flat-reverse"%>
+              </div>
+              <div class="btn btn-flat-reverse">
+                <%= link_to 'Delete', boat_path(@boat),
+                                          method: :delete,
+                                          data: {confirm: "Are you sure ?"},
+                                          class: "btn-flat-reverse"%>
+              </div>
+            </div> -->
 

@@ -3,6 +3,29 @@ class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+
+    @boats = Boat.geocoded # returns flats with coordinates
+
+    if params[:query].present?
+      @boats = @boats.search_by_title_and_description(params[:query])
+    end
+    if params[:category].present?
+      @boats = @boats.where(category: params[:category])
+    end
+    if params[:price_max].present?
+      @boats = @boats.where("price <= ?", params[:price_max])
+    end
+
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { boat: boat })
+      }
+    end
+  end
+
+  def index2
     @boats = Boat.all
 
     @boats = Boat.geocoded # returns flats with coordinates
@@ -35,6 +58,8 @@ class BoatsController < ApplicationController
 
   def show
    # returns flats with coordinates
+
+   @booking = Booking.new
 
     @marker = [{
       lat: @boat.latitude,
