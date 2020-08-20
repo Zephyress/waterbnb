@@ -5,6 +5,22 @@
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 
+@font-face {
+  font-family: "Anton";
+  src:url('anton.eot');
+  src:url('anton.eot?#iefix') format('embedded-opentype'),
+    url('anton.svg#anton') format('svg'),
+    url('anton.woff') format('woff'),
+    url('anton.ttf') format('truetype');
+  font-weight: 700;
+  font-style: sans-serif;
+}
+
+
+// font-family: 'Anton', sans-serif;
+
+// font-family: 'Noto Serif', serif;
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
