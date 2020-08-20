@@ -55,6 +55,7 @@
 
       </div>
     </div>
+
       <div id="booking-board">
         <div>
           <% @boat.bookings.each do |booking| %>
@@ -68,12 +69,12 @@
           </div>
         </div>
       </div>
+         <div id="map" class="mt-4 mb-4"
+             style="width: 100%; height: 250px;"
+             data-markers="<%= @marker.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
   </div>
 
- <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
 </div>
 
