@@ -14,6 +14,15 @@ class BoatsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { boat: boat })
       }
     end
+
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query OR address :query"
+      @boats = Boat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @boats = Boat.all
+    end
+
+
   end
 
   def new
