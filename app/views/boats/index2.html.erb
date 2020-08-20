@@ -2,6 +2,7 @@
   <div class="index-main">
     <div class="index-cards">
       <% @boats.each do |boat| %>
+        <%= link_to boat_path(boat) do %>
         <div class="index-card-product-left">
           <div class="index-card-product">
             <% if boat.photo.attached?  %>
@@ -21,7 +22,6 @@
         </div>
         <div class="index-card-product-right">
         </div>
-        <%= link_to boat_path(boat) do %>
         <% end %>
       <% end %>
     </div>
