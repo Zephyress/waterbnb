@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'bookings#index'
   end
 
-  root to: 'boats#index'
+  root to: 'pages#home'
   resources :boats do
     resources :bookings, only: [:create, :new]
   end
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show]
 
   get 'index2', to: 'boats#index2'
-  get "answer", to: "questions#answer"
   # POST 'pages/login', to: 'pages#login'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
