@@ -21,26 +21,26 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: #418DFF;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: #418DFF;
   color: white;
 }
 
 .btn-flat-reverse{
-  color: #1EDD88;
+  color: #418DFF;
   padding: 8px 24px;
   border-radius: 4px;
   background: white;
   transition: background 0.3s ease;
-  border-color: #1EDD88;
+  border-color: #418DFF;
 }
 
 .btn-flat-reverse:hover {
   background: white;
-  color: #1BCB7F;
-  border-color: #1EDD88;
+  color: #418DFF;
+  border-color: #418DFF;
 }
