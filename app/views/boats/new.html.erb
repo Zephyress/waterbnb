@@ -2,11 +2,11 @@
   <div class="">
     <%= simple_form_for (@boat) do |f| %>
       <div class="form-group mt-5">
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.input :address, id: "address" %>
-        <%= f.input :category, collection: Boat::CATEGORIES %>
-        <%= f.input :price %>
+        <%= f.input :title, :placeholder => 'Describe your rental' %>
+        <%= f.input :description, :placeholder => ' My boat is answome and is 50 feet long...', :label => "What can you tell us about you boat ?"  %>
+        <%= f.input :address, id: "address", :placeholder => '15 rue de la Plage, 13013 Marseille', :label => "What is the position of your boat ?"  %>
+        <%= f.input :category, collection: Boat::CATEGORIES, :placeholder => 'Select one of the choice', :label => "Select one of the category"  %>
+        <%= f.input :price, :label => "Price per day", :placeholder => 'Tell us the price per day of your boat !' %>
       </div>
       <div class="add-photo">
         <%= f.input :photo, as: :file %>
