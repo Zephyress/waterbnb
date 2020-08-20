@@ -28,6 +28,17 @@ class BoatsController < ApplicationController
   def index2
     @boats = Boat.all
 
+    if params[:query].present?
+      @boats = @boats.search_by_title_and_description(params[:query])
+    end
+    if params[:category].present?
+      @boats = @boats.where(category: params[:category])
+    end
+    if params[:price_max].present?
+      @boats = @boats.where("price <= ?", params[:price_max])
+    end
+
+
     @boats = Boat.geocoded # returns flats with coordinates
 
     @markers = @boats.map do |boat|

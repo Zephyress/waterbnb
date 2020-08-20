@@ -5,6 +5,22 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+    <div class="search d-flex align-items-center">
+    <%= form_tag(boats_path, method: :get, class: "form d-flex") do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control research-form",
+            placeholder: "Search for a boat"
+      %>
+      <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
+      <%= text_field_tag :price_max,
+          params[:price_max],
+          class: "form-control research-form",
+          placeholder: "Maximum price"
+      %>
+      <%= submit_tag "Search", class: "btn btn-search" %>
+    <% end %>
+  </div>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

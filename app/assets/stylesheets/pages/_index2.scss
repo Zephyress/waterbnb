@@ -1,14 +1,16 @@
 .index-main {
-  margin-top: 8px;
+  margin-top: 16px;
   display: flex;
   justify-content: space-between;
+
 }
 
 .index-cards {
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-gap: 8px;
-  flex-grow: 2;
+  // display: grid;
+  // grid-template-columns: 1fr;
+  // grid-gap: 8px;
+  flex-grow: 1;
+  align-items: start;
   a {
     text-decoration: none;
     color: #001c29;
@@ -17,13 +19,13 @@
 
 .index-map {
   width: 35%;
-  height: 100vh;
   z-index: 1 ;
-  height : calc(100vh - 90px);
-  padding : 16px 20px;
+  height : calc(70vh - 105px);
+  padding : 0px 20px 16px 20px;
   position: sticky;
   margin-left: 16px;
-  top: 0;
+  top: 88px;
+  bottom: 16px;
   border-radius: 4px;
 }
 
@@ -32,7 +34,13 @@
   display: block;
 }
 
+
+
 .index-card-product-mother {
   display: flex;
   justify-content: space-between;
+}
+
+.index-card-product-left {
+  margin-bottom: 16px;
 }

@@ -32,3 +32,76 @@
     </div>
   </div>
 </div>
+
+
+--> OLD INDEX
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+
+  <div class="text-banner">
+    <h1 class="ml-5">Looking for the Boat of your <strong> dreams?!</strong></h1>
+    <h4 class="ml-5">WaterBnb is made for you ! </h4>
+
+    <div class="search d-flex ml-5">
+      <%= form_tag(boats_path, method: :get, class: "form d-flex") do %>
+
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control research-form",
+              placeholder: "Search a boat"
+            %>
+
+        <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
+
+        <%= text_field_tag :price_max,
+            params[:price_max],
+            class: "form-control research-form",
+            placeholder: "Limite ?" %>
+
+        <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+      <% end %>
+
+
+    </div>
+
+  </div>
+</div>
+
+<div class="boats-container ">
+
+<h3> Our Boats selection</h3>
+
+  <div id="map" class="mb-5"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+  <div class="cards">
+
+    <% @boats.each do |boat| %>
+      <%= link_to boat_path(boat) do %>
+        <div class="card grow grow:hover mb-4 card-size" style="width: 100%;">
+           <% if boat.photo.attached?  %>
+              <%= cl_image_tag(boat.photo.key, class: "size", crop: :fill) %>
+            <% else  %>
+              <%= image_tag ("https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014711_1280.jpg"),width: 285, height: 280, crop: :fill %>
+            <% end  %>
+
+          <div class="card-body">
+            <div class="main-infos">
+              <h5 class="card-title"><%= boat.title %></h5>
+              <h6 class = "card-category"> <%= boat.category %></h6>
+            </div>
+            <%= cl_image_tag boat.user.profile_picture, class: "avatar" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <%= link_to "Create a new boat", new_boat_path, class: "btn btn-gradient mb-4-" %>
+
+
+  </div>
+  <%= render 'shared/footer' %>
