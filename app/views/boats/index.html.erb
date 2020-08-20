@@ -20,7 +20,7 @@
 
     <% @boats.each do |boat| %>
       <%= link_to boat_path(boat) do %>
-        <div class="card grow grow:hover mb-4" style="width: 100%;">
+        <div class="card grow grow:hover mb-4 card-size" style="width: 100%;">
            <% if boat.photo.attached?  %>
               <%= cl_image_tag(boat.photo.key, class: "size", crop: :fill) %>
             <% else  %>
