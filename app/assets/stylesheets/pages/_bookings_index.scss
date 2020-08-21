@@ -2,43 +2,53 @@
   width: 100%;
   display:flex;
   justify-content: space-between;
+  padding-top: 30px;
 }
 
 .profile {
   width: 30%;
   height: 500px;
-  background: linear-gradient(#ffffff, #aee5f9);
+  background-color: #418DFF;
   box-shadow: 1px 1px 8px 8px rgba(0, 0, 0, .1);
   border-radius: 4px;
-  margin-right: 10px;
+  margin-right: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 15px;
+  padding-bottom: 16px;
+  position: sticky;
+  top: 100px;
+  justify-content: space-evenly;
+  font-size: 16px;
 
-  justify-content: space-between;
     h3 {
-      color:#4D97C8;
-      padding: 15px;
-    }
-    h5 {
-      padding: 10px;
+
+      color:#FFFFFF;
+      padding: 16px;
       font-weight: bold;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
     }
 
 }
-
-.email {
-
-  color:#4D97C8;
-  font-size: 1em;
-}
-
-.member {
-
-  color: grey;
+.dash-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
 
 }
+
+
+.icons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  color: #FFFFFF;
+
+}
+
 
 .dash-bookings {
   width: 70%;
@@ -52,29 +62,56 @@
     h3{
     padding: 20px;
     font-weight: bold;
+
+
     }
 
 }
 
 .dash-card {
   display:flex;
+  align-items: center;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin: 20px 20px;
-  padding: 20px;
+  padding: 10px;
+  height: 50%;
+  transition: all .2s ease-in-out;
+
+    h4 {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1) ;
+    }
+}
+
+.dash-card:hover{
+  transform: scale(1.1);
 }
 
 .dash-card img {
-  width: 200px;
+  width: 160px;
+  height: 120px;
   object-fit: cover;
   padding-right: 16px;
   border-radius: 4px;
 }
+.dash-card-infos {
+
+  h4 {
+
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  p {
+
+    font-size: 0.8rem;
+  }
+}
 
 .test{
   height: 100%;
-    width: 120px;
+    width: 150px;
     object-fit: cover;
 }
 

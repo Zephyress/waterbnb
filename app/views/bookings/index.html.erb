@@ -4,13 +4,13 @@
 
     <div class="profile">
         <h3> Profile</h3>
-        <%= cl_image_tag current_user.profile_picture, class: "avatar" %>
-        <h5> Welcome <%= current_user.name %></h5>
-        <p class="email"><%= current_user.email %></p>
-        <p class= "member">Member since 01.01.2020</p>
-        <i class="far fa-share-alt">Share my profile</i>
-        <i class="fas fa-heart">See my favorites </i>
-        <i class="fas fa-star">Reviews received</i>
+        <h4> Welcome <%= current_user.name %> !</h4>
+        <%= cl_image_tag current_user.profile_picture, class: "dash-avatar" %>
+        <div class="icons">
+          <p class="account"><i class="fas fa-user">  Edit my account </i></p>
+          <p class="share"><i class="fas fa-share-alt">  Share my profile</i></p>
+          <p class="favorites"><i class="fas fa-heart">  See my favorites </i></p>
+        </div>
     </div>
 
 
