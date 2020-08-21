@@ -35,7 +35,11 @@
   position: absolute;
   top: 0;
 
-  #logo {
+  #logo 
     color: white;
   }
+
+.position-logo {
+  position: relative;
+  bottom: 5px;
 }
