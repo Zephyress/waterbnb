@@ -3,9 +3,10 @@
   position: sticky;
   top: 0;
   justify-content: space-between;
-  background: white;
+  background-color: white;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, .1);
   min-height: 72px;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,4 +26,20 @@
   color: rgb(65, 141, 255);
   font-size: 32px;
   margin-top: 16px;
+}
+
+#pages-home .navbar-lewagon {
+  background-color: transparent !important;
+  width: 100%;
+  box-shadow: none;
+  position: absolute;
+  top: 0;
+
+  #logo 
+    color: white;
+  }
+
+.position-logo {
+  position: relative;
+  bottom: 5px;
 }

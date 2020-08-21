@@ -2,7 +2,7 @@
 .photo {
   img {
     width: 100%;
-    height: 400px;
+    background-size: 800px;
     border-radius: 5px;
     object-fit: cover;
       }
@@ -12,6 +12,7 @@
   width: 100%;
   height: 250px;
 }
+
 
 .home-card-container {
   display: flex;
@@ -26,4 +27,8 @@
 
 .hard-container {
   margin: 8px 400px;
+
+.banner {
+  height: 70vh !important;
+
 }
