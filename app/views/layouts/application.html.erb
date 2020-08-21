@@ -13,13 +13,16 @@
     <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <% if notice %>
-    <p class="notice"><%= notice %></p>
+      <p class="notice"><%= notice %></p>
     <% end %>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <p class="alert"><%= alert %></p>
+      <div class="container-custom">
+        <%= yield %>
+      </div>
   </body>
 </html>
+    <%= render 'shared/footer' %>
