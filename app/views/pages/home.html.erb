@@ -1,30 +1,74 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-
+<!-- Banner + search -->
+<div class="home-banner-box">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
   <div class="text-banner">
     <h1 class="ml-5 pt-5">Looking for the Boat of your <strong> dreams?!</strong></h1>
     <h4 class="ml-5">WaterBnb is made for you ! </h4>
-
     <div class="search d-flex ml-5">
       <%= form_tag(boats_path, method: :get, class: "form d-flex") do %>
-
         <%= text_field_tag :query,
               params[:query],
               class: "form-control research-form",
-              placeholder: "Search a boat"
-            %>
-
+              placeholder: "Search a boat" %>
         <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
-
         <%= text_field_tag :price_max,
             params[:price_max],
             class: "form-control research-form",
             placeholder: "Limite ?" %>
-
         <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
       <% end %>
-
-
     </div>
-
+  </div>
+</div>
+<!-- Cards -->
+<div class="container">
+    <div class="home-card-container">
+      <div class="home-card-trip">
+        <%= image_tag "home-card1.svg" %>
+        <div class="home-card-trip-infos">
+           <div class="home-card-trip-title">
+              <h2>Enjoy a week-end in the middle of nowhere...</h2>
+            </div>
+           </div>
+      </div>
+      <div class="home-card-trip">
+        <%= image_tag "home-card2.svg" %>
+        <div class="home-card-trip-infos">
+          <div class="home-card-trip-title">
+            <h2>...Even if you are on a budget...</h2>
+          </div>
+        </div>
+      </div>
+      <div class="home-card-trip">
+        <%= image_tag "home-card3.svg" %>
+        <div class="home-card-trip-infos">
+           <div class="home-card-trip-title">
+              <h2>...You will forget all about COVID-19!</h2>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- They trust us -->
+  <div class="container">
+    <h2 class="home-title">They trust us</h2>
+    <hr>
+    <div class="mini-cards">
+      <div class="mini-card1">
+        <%= image_tag "brand1.png" %>
+      </div>
+      <div class="mini-card1">
+        <%= image_tag "brand2.png" %>
+      </div>
+      <div class="mini-card1">
+        <%= image_tag "brand3.png" %>
+      </div>
+      <div class="mini-card1">
+        <%= image_tag "brand4.png" %>
+      </div>
+      <div class="mini-card1">
+        <%= image_tag "brand5.png" %>
+      </div>
+    </div>
   </div>
 </div>
