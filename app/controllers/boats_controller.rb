@@ -4,16 +4,16 @@ class BoatsController < ApplicationController
 
   def index
 
-    @boats = Boat.geocoded # returns flats with coordinates
+    @boats = Boat.geocoded.order(created_at: :desc) # returns flats with coordinates
 
     if params[:query].present?
-      @boats = @boats.search_by_title_and_description(params[:query])
+      @boats = @boats.search_by_title_and_description(params[:query]).order(created_at: :desc)
     end
     if params[:category].present?
-      @boats = @boats.where(category: params[:category])
+      @boats = @boats.where(category: params[:category]).order(created_at: :desc)
     end
     if params[:price_max].present?
-      @boats = @boats.where("price <= ?", params[:price_max])
+      @boats = @boats.where("price <= ?", params[:price_max]).order(created_at: :desc)
     end
 
     @markers = @boats.map do |boat|
@@ -26,16 +26,16 @@ class BoatsController < ApplicationController
   end
 
   def index2
-    @boats = Boat.all
+    @boats = Boat.all.order('boats.created_at DESC')
 
     if params[:query].present?
-      @boats = @boats.search_by_title_and_description(params[:query])
+      @boats = @boats.search_by_title_and_description(params[:query]).order('created_at DESC')
     end
     if params[:category].present?
-      @boats = @boats.where(category: params[:category])
+      @boats = @boats.where(category: params[:category]).order('created_at DESC')
     end
     if params[:price_max].present?
-      @boats = @boats.where("price <= ?", params[:price_max])
+      @boats = @boats.where("price <= ?", params[:price_max]).order('created_at DESC')
     end
 
 
