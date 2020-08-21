@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.boat = @boat
     @booking.user = current_user
     if @booking.save!
-      redirect_to boat_path(@boat)
+      redirect_to bookings_path
     else
       render :new
     end

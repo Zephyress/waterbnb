@@ -9,13 +9,13 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control research-form",
-              placeholder: "Search a boat" %>
+              placeholder: "Search for a destination" %>
         <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
         <%= text_field_tag :price_max,
             params[:price_max],
             class: "form-control research-form",
-            placeholder: "Limite ?" %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+            placeholder: "Maximum price per day?" %>
+        <%= submit_tag "Search", class: "btn btn-search" %>
       <% end %>
     </div>
   </div>
