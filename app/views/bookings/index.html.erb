@@ -4,13 +4,13 @@
 
     <div class="profile">
         <h3> Profile</h3>
-        <%= cl_image_tag current_user.profile_picture, class: "avatar" %>
-        <h5> Welcome <%= current_user.name %></h5>
-        <p class="email"><%= current_user.email %></p>
-        <p class= "member">Member since 01.01.2020</p>
-        <i class="far fa-share-alt">Share my profile</i>
-        <i class="fas fa-heart">See my favorites </i>
-        <i class="fas fa-star">Reviews received</i>
+        <h4> Welcome <%= current_user.name %> !</h4>
+        <%= cl_image_tag current_user.profile_picture, class: "dash-avatar" %>
+        <div class="icons">
+          <p class="account"><i class="fas fa-user"> </i>Edit my account </p>
+          <p class="share"><i class="fas fa-share-alt">  </i>Share my profile</p>
+          <p class="favorites"><i class="fas fa-heart">  </i>See my favorites </p>
+        </div>
     </div>
 
 
@@ -19,16 +19,18 @@
       <h3>My Bookings</h3>
 
           <% current_user.bookings.each do |booking| %>
-          <div class="dash-card">
-              <%= cl_image_tag booking.boat.photo.key %>
-              <div class= "dash-card-infos">
-                <h4><%= booking.id %></h4>
-                  <p>From <br>
-                <%= booking.start_date.strftime("%A %e %B") %></p>
-                  <p>To <br>
-                <%= booking.end_date.strftime("%A %e %B") %></p>
+            <%= link_to boat_path(booking.boat), class: "dash-card-link text-decoration-none" do %>
+              <div class="dash-card d-relative">
+                <%= cl_image_tag booking.boat.photo.key %>
+                <div class= "dash-card-infos">
+                  <h4><%= booking.id %></h4>
+                    <p>From <br>
+                  <%= booking.start_date.strftime("%A %e %B") %></p>
+                    <p>To <br>
+                  <%= booking.end_date.strftime("%A %e %B") %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
 
     </div>
