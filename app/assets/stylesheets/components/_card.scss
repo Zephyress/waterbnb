@@ -100,7 +100,6 @@ object-fit: cover;
 
 .index-card-product h2 {
   font-size: 16px;
-  font-weight: bold;
   margin: 0;
   text-decoration: none;
 }
@@ -128,3 +127,78 @@ object-fit: cover;
 .index-card-product-infos {
   flex-grow:1;
 }
+
+.mini-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mini-card1 {
+  display: inline-block;
+  img {
+    height: 50px;
+  width: 100%;
+  }
+}
+
+.home-card-trip {
+  width:320px;
+  min-height:360px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color : white;
+  padding:16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .home-card-trip + .home-card-trip {
+    margin-left: 24px;
+}
+}
+
+.home-card-trip > img {
+  height: 200px;
+  width: 200px;
+  object-fit: fill;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.home-card-trip h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  text-align: center
+}
+
+.home-card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  text-align: center;
+}
+
+.home-card-trip-title {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-top: 1px solid rgba(0,0,0,0.2)
+}
+
+.home-card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.home-card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
