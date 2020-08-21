@@ -14,7 +14,7 @@
             class: "form-control research-form",
             placeholder: "Search for a boat"
       %>
-      <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form" %>
+      <%= select_tag "category", options_for_select(Boat::CATEGORIES), class: "research-form", prompt: 'Category' %>
       <%= text_field_tag :price_max,
           params[:price_max],
           class: "form-control research-form",
@@ -29,7 +29,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="book_btn_nav">
-            <%= link_to 'Create a new rental!', new_boat_path, class: "btn btn-flat"%>
+            <%= link_to 'New rental +', new_boat_path, class: "btn btn-flat"%>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
