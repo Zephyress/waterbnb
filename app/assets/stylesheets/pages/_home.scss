@@ -2,7 +2,7 @@
 .photo {
   img {
     width: 100%;
-    height: 400px;
+    background-size: 800px;
     border-radius: 5px;
     object-fit: cover;
       }
@@ -11,4 +11,24 @@
 .size {
   width: 100%;
   height: 250px;
+}
+
+
+.home-card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.home-title {
+  text-align: center;
+}
+
+.hard-container {
+  margin: 8px 400px;
+}
+
+.banner {
+  height: 70vh !important;
 }

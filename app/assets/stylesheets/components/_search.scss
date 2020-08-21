@@ -8,12 +8,21 @@
   height: 38px;
   width: 200px;
   border-radius: 4px;
-  background-color: #ffb647;
+  background-color: rgba(255,182,71,1);
   color: #fafafa;
   padding: 0px 16px;
   border:0px;
 }
 
+.btn-search:hover {
+  height: 38px;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #FF9D0A;
+  color: #fafafa;
+  padding: 0px 16px;
+  border:0px;
+}
 .div-search {
   width: 90%;
 }

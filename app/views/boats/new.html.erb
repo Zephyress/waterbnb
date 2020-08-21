@@ -1,18 +1,39 @@
-<div class="container">
-  <div class="">
+<div class="container container-form">
+  <div class="box-shad pt-1 pb-5">
     <%= simple_form_for (@boat) do |f| %>
       <div class="form-group mt-5">
-        <%= f.input :title, :placeholder => 'Describe your rental' %>
-        <%= f.input :description, :placeholder => ' My boat is answome and is 50 feet long...', :label => "What can you tell us about you boat ?"  %>
-        <%= f.input :address, id: "address", :placeholder => '15 rue de la Plage, 13013 Marseille', :label => "What is the position of your boat ?"  %>
-        <%= f.input :category, collection: Boat::CATEGORIES, :placeholder => 'Select one of the choice', :label => "Select one of the category"  %>
-        <%= f.input :price, :label => "Price per day", :placeholder => 'Tell us the price per day of your boat !' %>
+        <%= f.input :title,
+                    label: false,
+                    :placeholder => 'Describe your new rental',
+                    input_html: { class: 'form-border-create' } %>
+        <%= f.input :description,
+                    :placeholder => 'Give others specifications of your boat',
+                    label: false,
+                    input_html: { class: 'form-border-create' }  %>
+        <div class="d-flex sous-form justify-content-around">
+          <%= f.input :address,
+                        id: "address",
+                        :placeholder => 'Boat location ?',
+                        label: false,
+                        input_html: { class: 'form-border-create-sous' } %>
+          <%= f.input :category,
+                        collection: Boat::CATEGORIES,
+                        prompt: 'Category',
+                        label: false,
+                        input_html: { class: 'form-border-create-sous' }   %>
+          <%= f.input :price,
+                      label: false,
+                      :placeholder => 'Price per day ?',
+                      input_html: { class: 'form-border-create-sous' } %>
+        </div>
       </div>
-      <div class="add-photo">
-        <%= f.input :photo, as: :file %>
-        <%= f.submit "Share your boat", class: "btn btn-primary" %>
+
+      <div class="sous-form">
+        <div class="add-photo mb-3">
+          <%= f.input :photo, as: :file, label: false %>
+        </div>
+          <%= f.submit "Time to rent !", class: "btn btn-primary btn-form" %>
       </div>
     <% end %>
   </div>
 </div>
-<%= render 'shared/footer' %>
